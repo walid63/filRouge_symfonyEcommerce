@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce index{% endblock %}
+
+{% block body %}
+    <h1> {{titre}} </h1>
+
+        
+        {% for annonce in annonces %}
+             &nbsp;
+              <section class="annonceSectionBox">
+              <div class="container">
+              <div class="card shadow text-dark">
+              {{ annonce.id }}
+              <div class="imageAnnonceCard">
+              <img class="card-img-top" src="https://pixabay.com/images/download/woman-1594711_1920.jpg?attachment&modala">
+              </div>
+              <div class="container"><hr></div>
+                <h1>{{ annonce.title }}</h1>
+                <p>Description: {{ annonce.description }}<p>
+                <h5>Prix: {{ annonce.price }}</h5>
+                <h5>Mis en ligne le: {{ annonce.createdAt ? annonce.createdAt|date('Y-m-d H:i:s') : '' }}</h5>
+                <p>Ville: {{ annonce.city }}</p>
+                <p>Region: {{ annonce.region }}</p>
+                    <a href="{{ path('app_annonce_show', {'id': annonce.id}) }}">Voir la publication</a>
+                    <a href="{{ path('app_annonce_edit', {'id': annonce.id}) }}">edit</a>
+              </div>
+              </div>
+              &nbsp;
+              <div class="container"><hr class="annonceLineSeparator"></div>
+              </section>
+
+        {% else %}   
+                <td colspan="8">no records found</td>         
+        {% endfor %}
+    <div class="container">
+    <a href="{{ path('app_annonce_new') }}">Create new</a>
+    </div>
+{% endblock %}

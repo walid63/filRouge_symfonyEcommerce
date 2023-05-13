@@ -1,0 +1,12 @@
+<div class="addAnnonceForm">
+{{ form_start(form) }}
+    <fieldset class="border p-2">
+   <legend  class="float-none w-auto p-2"> {{titre}} </legend>
+  <div class="container">
+   {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+  </div>
+</fieldset>
+{{ form_end(form) }}
+
+</div>

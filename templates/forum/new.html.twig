@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block body %}
+    <div class="container"><h1> {{titre}} </h1></div>
+    &nbsp;
+    <section class="addTopicForum">
+    <div class="container">
+    {{ include('forum/_form.html.twig') }}
+    </div>
+    </section>
+
+    <div class="container">
+    <a href="{{ path('app_forum_index') }}">back to list</a>
+    </div>
+{% endblock %}

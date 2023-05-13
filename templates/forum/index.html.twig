@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post index
+{% endblock %}
+
+{% block body %}
+	<h1> {{titre}} </h1>
+
+	<div class="container">
+		<div class="addTopicBlock">
+			<button class="btn btn-dark">
+				<a href="{{ path('app_forum_new') }}">Ajouter une publication</a>
+			</button>
+		</div>
+	</div>
+	&nbsp;
+	<section class="topicListSection">
+		<div class="container">
+			<table class="table table-dark table-striped">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Title</th>
+						<th>Content</th>
+						<th>CreatedAt</th>
+						<th>Count_like</th>
+						<th>Slug</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for post in posts %}
+						<tr>
+							<td>{{ post.id }}</td>
+							<td>{{ post.title }}<br> {{ post.content }}</td>
+							<td>{{ post.content }}</td>
+							<td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+							<td>{{ post.countLike }}</td>
+							<td>{{ post.slug }}</td>
+							<td>
+								<a class="showLink" href="{{ path('app_forum_show', {'id': post.id}) }}">show</a>
+								{#<a href="{{ path('app_forum_edit', {'id': post.id}) }}">edit</a>#}
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="7">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+
+{% endblock %}

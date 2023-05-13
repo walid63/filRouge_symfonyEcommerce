@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+
+    <section class="registerForm">
+    <div class="container">
+
+    {{ form_start(registrationForm) }}
+
+    {{form_errors(registrationForm)}}
+
+    {{form_widget(registrationForm.firstname,{"attr":{"placeholder":"Inserez votre Nom"}})}}
+    &nbsp;
+
+    {{form_widget(registrationForm.lastname,{"attr":{"placeholder":"Inserez votre Prenom"}})}}
+    &nbsp;
+    {{form_widget(registrationForm.username,{"attr":{"placeholder":"Inserez votre Nickname"}})}}
+    &nbsp;
+    {{form_widget(registrationForm.email,{"attr":{"placeholder":"Inserez votre E-mail"}})}}
+    &nbsp;
+
+    {{form_widget(registrationForm.plainPassword,{"attr":{"placeholder":"Inserez votre Mot de passe"}})}}
+    &nbsp;
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+
+    </div>
+    </section>
+{% endblock %}
